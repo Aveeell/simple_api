@@ -8,9 +8,9 @@
 
 ## Запуск приложения
 
-`docker-compose up`
-
-
+```
+docker-compose up
+```
 
 ## Архитктура БД
 
