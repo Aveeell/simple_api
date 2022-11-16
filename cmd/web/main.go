@@ -25,12 +25,12 @@ type application struct {
 }
 
 func main() {
-	db, err1 := openDB("root:root@tcp(mysql)/avito?parseTime=True")
+	db, err := openDB("root:root@tcp(mysql)/avito?parseTime=True")
 
 	app := &application{&mysql.AvitoModel{DB: db}}
 
-	if err1 != nil {
-		log.Fatal(err1)
+	if err != nil {
+		log.Fatal(err)
 	}
 	defer db.Close()
 
@@ -45,6 +45,6 @@ func main() {
 	mux.HandleFunc("/bookkeeping/download", app.downloadDocument)
 
 	log.Println("run on http://localhost:8080")
-	err := http.ListenAndServe(":8080", mux)
-	log.Fatal(err)
+	err1 := http.ListenAndServe(":8080", mux)
+	log.Fatal(err1)
 }
