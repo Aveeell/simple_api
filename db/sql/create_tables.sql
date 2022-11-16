@@ -1,0 +1,11 @@
+CREATE TABLE users (id INTEGER NOT NULL, balance INTEGER NOT NULL, reserved INTEGER NOT NULL);
+CREATE INDEX users_INDEX ON users(id);
+CREATE TABLE products (id INTEGER PRIMARY KEY NOT NULL, title VARCHAR(25) NOT NULL, price INTEGER NOT NULL);
+CREATE INDEX products_INDEX ON products(id);
+INSERT INTO products (id, title, price) values (1, 'guitar', 500);
+INSERT INTO products (id, title, price) values (2, 'drum set', 1500);
+INSERT INTO products (id, title, price) values (3, 'pick', 5);
+CREATE TABLE history (id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, user_id INTEGER NOT NULL, transaction INTEGER NOT NULL, date DATETIME NOT NULL, comment VARCHAR(100));
+CREATE INDEX history_INDEX ON history(id);
+CREATE TABLE bookkeeping (id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, user_id INTEGER NOT NULL, product VARCHAR(25) NOT NULL, price INTEGER NOT NULL, date DATETIME NOT NULL);
+CREATE INDEX bookkeeping_INDEX ON bookkeeping(id);
