@@ -26,7 +26,8 @@ type application struct {
 
 func main() {
 
-	db, err1 := openDB("avito_user:avitoBackend-2022@/avito?parseTime=True")
+	db, err1 := openDB("avito_user:avitoBackend-2022@tcp(host.docker.internal:3306)/avito?parseTime=True")
+	// db, err1 := openDB("root:root@tcp( ?????? )/avito?parseTime=True")
 
 	app := &application{&mysql.AvitoModel{DB: db}}
 
